@@ -109,24 +109,25 @@ int main()
         cout << "\n\n Task 4-5. Enter a year: ";
         cin >> a;
 
-        if (a < 1582)
-            cout << "\n It would be wise probably to only calculate this for valid years but ... ";
-
-
-        if (a % 4 == 0)
-            {
-                if (a % 100 == 0)
-                    {
-                        if (a % 400 == 0)
-                            cout << "\n This is a leap year";
-                        else 
-                            cout << "\n This is a common year";
-                    }
-                else
-                    cout << "\n This is a leap year";
-            }
-        else
-            cout << "\n This is a common year";
+        if ((a > 3000) || (a < 1))
+            cout << "\n The year should be within 3000 years AD";
+        else 
+        {
+            if (a % 4 == 0)
+                {
+                    if (a % 100 == 0)
+                        {
+                            if (a % 400 == 0)
+                                cout << "\n This is a leap year";
+                            else 
+                                cout << "\n This is a common year";
+                        }
+                    else
+                        cout << "\n This is a leap year";
+                }
+            else
+                cout << "\n This is a common year";
+        }
     }
 
     return 0;

@@ -1,7 +1,7 @@
 #include <iostream>
 #include <cstdlib>
 #include <ctime>
-#include <vector> //forgive me, master, I have to go all out just this time
+#include <vector> 
 
 using namespace std;
 
@@ -105,22 +105,31 @@ int sum(int* arr, int start, int finish)
     return sum;
 }
 
+////////////////////////////////////////////// function for task 5-5, that can return bool (but I use next one to also display the divisions)
+bool ifequalsides(int* arr, int size, int divisor)
+{
+    if (sum(arr, 0, divisor) == sum(arr, divisor+1, size-1))
+            return 1;
+    else
+            return 0;
+}
+
 ////////////////////////////////////////////// main function for task 5-5 checking function
 void arraycomparison(int* arr, int size)
 {
     vector<int> journal;  //dynamic array to store division encounters because its easier
 
     for (int i = 0; i<size; i++)
-        if (sum(arr, 0, i) == sum(arr, i+1, size-1))
+        if (ifequalsides(arr, size, i))
             journal.push_back(i);
 
     if (journal.size() == 0)
     {
         arrayload(arr, size);
-        cout << "\n no matches found. ";
+        cout << "\n No encounters in that array!";
     }
-    else
-        for (int i = 0; i<journal.size(); i++)
+
+    for (int i = 0; i<journal.size(); i++)
         {
             cout << "\n Encounter " << i+1 << ": ";
             for (int j = 0; j<size; j++)
@@ -131,6 +140,7 @@ void arraycomparison(int* arr, int size)
             }
         }
 }
+
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

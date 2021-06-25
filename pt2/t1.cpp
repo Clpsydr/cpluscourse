@@ -4,11 +4,12 @@
 
 using namespace std;
 
+// var replace for quick changes in t1 and t3
 #define NUMONE 1.25
 #define NUMTWO 3.12
 #define STACKLENGTH 10
 
-class Power
+class Power                             // exponent class
 {
     private:
         float base;
@@ -27,7 +28,7 @@ class Power
         }
 };
 
-class RGBA 
+class RGBA                              // color class
 {
     private:
         uint8_t m_red =    0;
@@ -43,11 +44,11 @@ class RGBA
 
         void Print()
         {
-            printf("color is (%d %d %d %d) \n", m_red, m_green, m_blue, m_alpha);
+            printf("color is (%d %d %d %d) \n", m_red, m_green, m_blue, m_alpha);           //looks like cout displays uint8 as char, had to switch to printf here
         }
 };
 
-class Stack
+class Stack                                 // stack class
 {
     private:
         int values[STACKLENGTH];
@@ -96,7 +97,7 @@ class Stack
         }
 };
 
-
+////////////////////////////////// 
 
 int main()
 {

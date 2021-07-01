@@ -36,15 +36,23 @@ class RGBA                              // color class
         uint8_t m_blue =   0;
         uint8_t m_alpha =  255;
 
+        
+
     public:
+        RGBA() // default constructor without arguments
+        {
+            cout << " - blank color allocated" << endl;
+        }       
+
         RGBA(uint8_t r, uint8_t g, uint8_t b, uint8_t a) :
         m_red(r), m_green(g), m_blue(b), m_alpha(a)
         {
+            cout << " - specific color allocated" << endl;
         }
 
         void Print()
         {
-            printf("color is (%d %d %d %d) \n", m_red, m_green, m_blue, m_alpha);           //looks like cout displays uint8 as char, had to switch to printf here
+            cout << "color is (" << unsigned(m_red) << " " << unsigned(m_green) << " " << unsigned(m_blue) << " " << unsigned(m_alpha) << ")" << endl;
         }
 };
 
@@ -111,6 +119,8 @@ cout << "for " << NUMONE << " in power of " << NUMTWO << ", result is " << newnu
 cout << "\nT2.1.2  Color class" << endl;
 RGBA newcolor(125,125,0,255);
 newcolor.Print();
+RGBA newcolor2;
+newcolor2.Print();
 
 //========================================================================================================================
 cout << "\nT2.1.3  Stack class operations" << endl;

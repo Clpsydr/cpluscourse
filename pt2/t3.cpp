@@ -38,7 +38,7 @@ class Parallelogram : public Figure
             return height;
         }
 
-        float const Area() 
+        float const Area() override 
         {
             return base*height;
         }
@@ -212,7 +212,7 @@ class Fraction
 
 Fraction operator*(const Fraction &f1, int multiplier)
 {
-    return Fraction(f1.getn() * multiplier, f1.getd() * multiplier);
+    return Fraction(f1.getn() * multiplier, f1.getd());
 }
 
 Fraction operator+(const Fraction &f1, const Fraction &f2)
@@ -242,15 +242,12 @@ Fraction operator/(const Fraction &f1, const Fraction &f2)
 
 bool operator==(const Fraction &f1, const Fraction &f2)     // to compare, we transform both fractions to common denominator and then compare resulting numerators
 {
-    if ((f1.getn() * f2.getd()) == (f2.getn() * f1.getd()))
-        return true;
-    else
-        return false;
+    return f1.getn() * f2.getd() == f2.getn() * f1.getd();
 }
 
 bool operator!=(const Fraction &f1, const Fraction &f2)
 {
-    return ((f1.getn() * f2.getd()) != (f2.getn() * f1.getd())) ? true : false;
+    return f1.getn() * f2.getd() == f2.getn() * f1.getd() ? false : true;
 }
 
 bool operator>(const Fraction &f1, const Fraction &f2)
@@ -280,7 +277,7 @@ string strbool(bool b)
 
 // TASK 4 classes
 enum cardsuit {hearts, spades, diamonds, clubs};
-enum cardrank {ace, two, three, four, five, six, seven, eight, nine, ten, jack, king, queen};
+enum cardrank {ace=1, two=2, three=3, four=4, five=5, six=6, seven=7, eight=8, nine=9, ten=10, jack=10, king=10, queen=10};
 
 class Card
 {
@@ -289,14 +286,14 @@ class Card
         cardsuit suit;
         bool istapped;
     public:
-        void Flip()
+        void Flip() 
         {
             istapped = !istapped;
         }
 
-        int Getvalue()
+        int Getvalue() const
         {
-            return (rank+1);
+            return rank;
         }
 };
 

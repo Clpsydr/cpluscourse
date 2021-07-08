@@ -6,15 +6,9 @@
 using namespace std;
 
 #define CLASSSIZE 30                                                                // Classroom is limited in size
-
 enum genders {unspecified, male, female};
-static const char * Gendstrings[] = {"unspecified" , "male", "female"};             // looked up online, just a string output aid for enumeration
-const char * GenderTxt(int enumvalue)
-{
-    return Gendstrings[enumvalue];
-}
+static const char * Gendstrings[] = {"unspecified" , "male", "female"};             
     
-
 class Person                                                                        // base human class
 {
     private: 
@@ -38,22 +32,22 @@ class Person                                                                    
             cout << " - specific person created" << endl;
         }
 
-        string const getName()
+        string getName() const
         {
             return name;
         }
 
-        genders const getGender()
+        genders getGender() const
         {
             return gender;
         }
 
-        float const getWeight()
+        float getWeight() const
         {
             return weight;
         }
 
-        float const getAge()
+        float getAge() const
         {
             return age;
         }
@@ -99,7 +93,7 @@ class Student : public Person                                                   
             checkstudents();
         }
 
-        int const getCount()
+        int static getCount() 
         {
             return count;
         }
@@ -132,7 +126,6 @@ class Classroom                             // Class for keeping track of studen
     private:
         Student* students[CLASSSIZE];
         int population;                 // still have to use separate counter, to avoid being able to add students only after their immediate creation
-        string searchline;
 
     public:
         Classroom()
@@ -147,19 +140,17 @@ class Classroom                             // Class for keeping track of studen
             population ++;
         }
 
-        string searchStudent()
+        string searchStudent(string searchline)
         {
             if (population != 0)
             {
-                cout << "Searching for a student by name: ";
-                cin >> searchline;
                 for (int i = 0 ; i < population; i++)
                 {
                     Student j = *students[i];
                     if (j.getName() == searchline)
                     {
                         stringstream stream;
-                        stream << "student found, its " << j.getName() << ": " << GenderTxt(j.getGender()) << ", " << j.getAge() <<  " years, " << j.getWeight() << " kg.";
+                        stream << "student found, its " << j.getName() << ": " << Gendstrings[j.getGender()] << ", " << j.getAge() <<  " years, " << j.getWeight() << " kg.";
                         return stream.str();  
                     }
                 }
@@ -239,6 +230,7 @@ int main()
 {
 //========================================================================================================================
 Classroom classroom;         // feels extremely redundant , but its easier for the sake of searching
+string searchline;
 
 Student newstudent1("Shestakov", 37, male, 70, 2009);
 Student newstudent2("Ivanov", 25, male, 73, 2015);
@@ -250,8 +242,12 @@ classroom.addtoaClass(&newstudent2);
 classroom.addtoaClass(&newstudent3);
 classroom.addtoaClass(&newstudent4);
 
-cout << classroom.searchStudent() << endl;
-cout << classroom.searchStudent() << endl;
+cout << "Searching for a student by name: ";
+cin >> searchline;
+cout << classroom.searchStudent(searchline) << endl;
+cout << "Searching for a student by name: ";
+cin >> searchline;
+cout << classroom.searchStudent(searchline) << endl;
 
 //========================================================================================================================
 Apple a("red");

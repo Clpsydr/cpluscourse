@@ -68,7 +68,7 @@ class Hand
             deck.clear();
         }
 
-        int Count()
+        int Count() const
         {
            return deck.size();
         }
@@ -107,10 +107,7 @@ class GenericPlayer : public Hand
 
         bool IsBusted() const
         {
-            if (getValue() > 21)
-                return true;
-            else
-                return false;
+            return (getValue() > 21);
         }
 
         void Bust() const

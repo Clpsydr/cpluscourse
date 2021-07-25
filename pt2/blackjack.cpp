@@ -58,7 +58,6 @@ std::ostream& operator<< (std::ostream &out, const BlackJack::Card &crd)        
     const std::string ranks[] = {"A", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K"};
 
     if (crd.IsFlipped())
-        //out << ranks[crd.Getvalue()] << crd.GetSuit() << " ";
         out << ranks[crd.GetRank()] << suits[crd.GetSuit()] << " ";
     else
         out << "XX ";
@@ -238,17 +237,17 @@ bool Player::IsHitting() const                   // is it okay to consider "no" 
 
 void Player::Win() const
     {
-        std::cout << getName() << " has won." << std::endl;
+        std::cout << "<<" << getName() << " has won>>" << std::endl;
     }
 
 void Player::Lose() const
     {
-        std::cout << getName() << " has lost." << std::endl;
+        std::cout << "<<" << getName() << " has lost>>" << std::endl;
     }
 
 void Player::Push() const
     {
-        std::cout << getName() << " is in draw." << std::endl;
+        std::cout << "<<" << getName() << " is in draw>>" << std::endl;
     }
 
 House::House(const std::string name) : GenericPlayer(name)
@@ -291,8 +290,6 @@ void Game::Play()
         {
             std::vector<Player>::iterator iPlayer;
             std::vector<Card*>::iterator iCard;
-
-
             std::cout << std::endl << HEARTS << SPADES << " GAME START " << DIAMONDS << CLUBS << std::endl << std::endl;
 
 // initial 2 cards for everyone
@@ -325,6 +322,7 @@ void Game::Play()
             deck.AdditionalCards(dealer);
 
 // score roundup
+            std::cout << " Card dealing phase ended, checking score >>>>>>>>>>" << std::endl;
             if(dealer.IsBusted())
             {
                 for (iPlayer = Players.begin(); iPlayer != Players.end(); ++iPlayer)

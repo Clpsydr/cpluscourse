@@ -3,7 +3,7 @@
 #include <math.h>
 
 template <typename T, typename N>
-double Div(T a, N b)
+T Div(T a, N b)
 {
     if (a == 0)
         throw "Division by zero, can't divide!!!";
@@ -23,7 +23,7 @@ class Ex
         ~Ex()
         {}
 
-        const float Get()
+        float Get() const
         {
             return x;
         }

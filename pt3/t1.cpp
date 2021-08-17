@@ -60,12 +60,12 @@ class PersonSearch          // functor for searching in phonebook
 {
     private:
         std::string request;
-        std::pair<std::string, phonenumber>& m_result;
+        std::pair<std::string, std::optional<phonenumber>>& m_result;
         int counter;
     public:
-        explicit PersonSearch(std:: string newreq, std::pair<std::string, phonenumber>& results) : request(newreq), m_result(results)
+        explicit PersonSearch(std:: string newreq, std::pair<std::string, std::optional<phonenumber>>& results) : request(newreq), m_result(results)
         {
-            m_result = std::pair<std::string, phonenumber>("not found", {0,0,"0"});
+            m_result = std::pair<std::string, std::optional<phonenumber>>("not found", std::nullopt);
             counter = 0;
         }
 
@@ -77,7 +77,7 @@ class PersonSearch          // functor for searching in phonebook
 
                     if (counter == 1)
                     {
-                        m_result = std::pair<std::string, phonenumber>("", entry.second);
+                        m_result = std::pair<std::string, std::optional<phonenumber>>("", entry.second);
                     }
                     else if (counter > 1)
                         m_result.first = "found more than 1";
@@ -167,10 +167,10 @@ class Phonebook
             sort(entries.begin(), entries.end(), sortByPhone);
         }
 
-        std::pair<std::string,phonenumber> GetPhoneNumber(std::string request)          // Number search implemented through function object
+        std::pair<std::string,std::optional<phonenumber>> GetPhoneNumber(std::string request)          // Number search implemented through function object
         {
             
-            std::pair<std::string,phonenumber> result;
+            std::pair<std::string,std::optional<phonenumber>> result;
             for_each(entries.begin(), entries.end(), PersonSearch(request, result));
             return result;           
         }
@@ -221,11 +221,11 @@ int main()
     auto print_phone_number = [&phonebook](const std::string& surname)
     {
         std::cout << surname << "\t";
-        auto answer = phonebook.GetPhoneNumber(surname);
-        if (get<0>(answer).empty())
-            std::cout << get<1>(answer) << std::endl;
+        std::pair<std::string, std::optional<phonenumber>> answer = phonebook.GetPhoneNumber(surname);
+        if (answer.first.empty())
+            std::cout << answer.second.value() << std::endl;
         else    
-            std::cout << get<0>(answer) << std::endl;
+            std::cout << answer.first << std::endl;
     };
 
     print_phone_number("Ivanov");

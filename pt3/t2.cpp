@@ -89,7 +89,7 @@ int Search_forfor(std::string_view& text, std::string& searchsample)
     return counter;    
 }
 
-int main()
+int main(int argc, char* argv[])
 {
     int m, n, f, g;
     std::cout << "input four numbers (divided by space) - ";
@@ -115,18 +115,26 @@ int main()
     std::string parseline;
     std::string parsedtext;
     std::string sample = "aeiouAEIOU";
-    std::ifstream source("wp.txt");
 
-    if (!source)
+    if (argc > 1)           
     {
-       std::cerr << "No file in the directory";
-       exit(1);
+        std::ifstream source(argv[1]);
+        if (!source)
+        {
+            std::cerr << "file name invalid, exiting";
+            exit(1);
+        }
+        else 
+            while (getline(source, parseline))
+            {
+                parsedtext.append(parseline);
+            }
     }
     else
-        while (getline(source, parseline))
-        {
-            parsedtext.append(parseline);
-        }
+    {
+        std::cerr << "No file specified, skipping file reading test";
+        exit(1);
+    }
         
     std::string_view txt = parsedtext;
     std::cout << "total lines " << txt.size();

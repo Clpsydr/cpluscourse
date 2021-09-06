@@ -81,14 +81,16 @@ int main()
 /////////////////
     std::vector<float> waveform(100);
     std::vector<int> digitized(100);
-    float ctr = 0;
-    generate(waveform.begin(), waveform.end(),[](){return sin(0.00002*getRandomNum(0,314159));});
+    std::iota(waveform.begin(), waveform.end(),1);
+    transform(waveform.begin(), waveform.end(), waveform.begin(), [](float i){
+        return sin(i*16*M_PI/100)*50;
+    });
 
     std::cout << std::endl << "Second part. Generating a new waveform. " << std::endl;
     display(waveform);
 
     transform(waveform.begin(), waveform.end(), digitized.begin(), [](float i){
-        return round(i);
+        return trunc(i);
     });
     std::cout << std::endl << "Digitized version - " << std::endl;
     display(digitized);

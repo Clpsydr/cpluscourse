@@ -1,0 +1,21 @@
+syntax="proto3";
+
+message FullName
+{
+	string Surname = 1;
+	string Name = 2;
+	optional string Patronymic = 3;
+}
+
+message Student
+{
+	FullName Fio = 1;
+	repeated int32 Grades = 2;
+	int32 Avggrade = 3;
+}
+
+message StudentsGroup
+{
+	repeated Student students = 1;
+}
+

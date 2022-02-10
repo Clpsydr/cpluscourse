@@ -1,3 +1,7 @@
+/*
+1. Date() class, with overloaded output, has 2 smartpointers Today and Date swapping their data. They should check for nullptr.
+2. Date() comparison algorithm that returns later date. Function that exchanges data in two smart pointers passed as parameters.
+*/
 #include <cstdio>
 #include <iostream>
 #include <fstream>

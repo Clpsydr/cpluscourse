@@ -1,3 +1,8 @@
+/*
+1. Class Person with name, age, gender and weight parameters.  Student is an inherited class with extra parameter. In main() several students are created and printed.
+2. Classes Apple() and Banana() inhertied from Fruit(), that contains name and color atritbutes. Extra class that inhertis from Apple().
+*/
+
 #include <iostream>
 #include <cstdint>
 #include <math.h>
@@ -14,7 +19,6 @@ const char * GenderTxt(int enumvalue)
     return Gendstrings[enumvalue];
 }
     
-
 class Person                                                                        // base human class
 {
     private: 
@@ -125,7 +129,7 @@ class Student : public Person                                                   
         }
 };
 
-int Student::count = 0;                     // initializing (?) static student counter
+int Student::count = 0;                     // Static student counter
 
 class Classroom                             // Class for keeping track of students 
 {

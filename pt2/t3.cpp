@@ -1,3 +1,10 @@
+/*
+1. Figure() class, that has Parallelogram() and Circle() descendants. Rectangle(), Square() and Rhombus() are descendants of Parallelogram().
+Apply constructors and area() method functionality that is being redefined in descendants.
+2. Diamond of death inheritance problem representation: Car() class with PassengerCar() and Bus() descendants. Minivan() class that inherits from both PassengerCar() and Bus()
+3. Fraction() class with whole fraction functionality. Checks for zero division and overloads basic calculation and logical operators.
+4. Black Jack data sturctures
+*/
 #include <iostream>
 #include <cstdint>
 #include <cmath>

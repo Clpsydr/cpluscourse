@@ -88,6 +88,8 @@ std::ostream& operator<< (std::ostream &out, BlackJack::GenericPlayer &Pl)      
     return out;
 };
 
+////////////////////
+
 Hand::Hand()
     {
         deck.reserve(MAXHAND);
@@ -139,6 +141,9 @@ int Hand::getValue() const                    // So, I assume that we only need 
         return tempvalue;
     }
 
+
+///////////////////////////////////////   
+
 GenericPlayer::GenericPlayer(const std::string& n) : name(n)
     {
     }
@@ -161,6 +166,9 @@ std::string GenericPlayer::getName() const
     {
         return name;
     }
+
+
+///////////////////////////////////////////////////////    
 
 Deck::Deck()
     {
@@ -216,6 +224,8 @@ void Deck::AdditionalCards(GenericPlayer& GPlayer)
         }
     }
 
+//////////////////////////////////////////////////////////
+
 Player::Player(std::string n) : GenericPlayer(n)
     {
     }
@@ -251,6 +261,8 @@ void Player::Push() const
         std::cout << getName() << " is in draw." << std::endl;
     }
 
+///////////////////////////////////////////////////////////////
+
 House::House(const std::string name) : GenericPlayer(name)
     {
     }
@@ -269,6 +281,8 @@ void House::FlipFirstCard()
         if (!deck.empty())
             deck[0]->Flip();
     }
+
+///////////////////////////////////////////////////////////////
 
 Game::Game(const std::vector<std::string>& Pnames) 
         {

@@ -1,3 +1,8 @@
+/*
+1. Template class for pair of a certain value.
+2. Template class for pair of different values.
+3. StringValuePair() with a string and any other value.
+*/
 #include <iostream>
 #include <cstdint>
 #include <ctime>

@@ -1,15 +1,22 @@
+/*
+1. Class with two floats and two methods, one sets float values, another displays f1 in power of f2
+2. Class RGBA with uin8_t values for each color attribute. Default constructor assigning values. Method that displays their values.
+3. Class with a stack functionality. Contains private 10size Array of integeres, private value that returns size, also methods reset(), push(), pop(), print().
+*/
+
 #include <iostream>
 #include <cstdint>
 #include <math.h>
 
 using namespace std;
 
-// var replace for quick changes in t1 and t3
+// No manual input in runtime
+// variables replace for quick changes in t1 and t3
 #define NUMONE 1.25
 #define NUMTWO 3.12
 #define STACKLENGTH 10
 
-class Power                             // exponent class
+class Power                             // Power class
 {
     private:
         float base;
@@ -28,15 +35,13 @@ class Power                             // exponent class
         }
 };
 
-class RGBA                              // color class
+class RGBA                              // Color property class
 {
     private:
         uint8_t m_red =    0;
         uint8_t m_green =  0;
         uint8_t m_blue =   0;
         uint8_t m_alpha =  255;
-
-        
 
     public:
         RGBA() // default constructor without arguments

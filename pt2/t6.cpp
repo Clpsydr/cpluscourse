@@ -1,12 +1,16 @@
+/*
+1. Algorithm that checks if the input is valid as integer value. Warns if otherwise, but doesnt stop the input.
+2. Endll method for iostream which skips two lines and flushes buffer
+3. Black Jack class Player() inheriting from a GenericPlayer().
+4. Black Jack class House() inheriting from a GenericPlayer()
+*/
+
 #include <iostream>
 #include <fstream>
 #include <cstdint>
 #include <sstream>
-//#include "blackjack.cpp"
 
 using namespace std;
-//using namespace BlackJack;
-
 bool intcheck(string input)
 {
     if (input.length() < 1)

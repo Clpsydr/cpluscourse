@@ -1,3 +1,9 @@
+/*
+1. Template Div() function that throws DivideByZero exception.
+2. Ex() with x float, and Bar() with y float and set(a) method. If y+a> 100, Ex exception is thrown with a*y parameters, else y = a;
+User input loops until 0 is entered.
+3. Robot() class that simulates moving on a 10x10 grid. Move method has exceptions that prevents it stepping off the grid and prevents the incorrect input (ie non integer)
+*/
 #include <cstdio>
 #include <iostream>
 #include <math.h>

@@ -94,7 +94,6 @@ class House : public GenericPlayer
         void FlipFirstCard();
 };
 
-
 class Game
 {
     private:

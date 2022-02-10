@@ -1,3 +1,8 @@
+/*
+1.  Pseudo vector container with extra methods: pop_back(), pop_front(), sorting and display.
+2.  Algorithm for finding out how many different values are in a vector container. Using the most efficient way.
+3.  Black Jak Hand() class
+*/
 #include <iostream>
 #include <cstdint>
 #include <ctime>
@@ -211,7 +216,7 @@ int DetectDupes(vector<int> &samplevec)                        // I used builtin
 
 
 //BLACK JACK CLASSES        
-//sorry for now I just copied previous task classes instead of making external library for them
+//in final task its in an external library
 enum cardsuit {hearts, spades, diamonds, clubs};
 enum cardrank {ace=1, two=2, three=3, four=4, five=5, six=6, seven=7, eight=8, nine=9, ten=10, jack=10, king=10, queen=10};
 

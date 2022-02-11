@@ -12,11 +12,10 @@
 -  taskthree - externals, libraries, arrays, pointers
 -  secondtask.cpp - enum, union, structs
 
-
 /pt2 - OOP tasks, plus Black Jack 
 
-
 /pt3 - 
+- t1.cpp , extra types, lambda functions
 
 ## for snake game
 0.1- basic gameplay, collisions, tail extension

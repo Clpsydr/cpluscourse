@@ -1,3 +1,7 @@
+/* Task 5 - assotiative STL containers
+1. Template function that receives iterators to the start and end of the word sequence, and outputs list of unique words.
+2. Using assotiative container, make an algorithm that uses text input , splits it into sentences and makes ordered list of words sorted by length
+*/
 #include <cstdio>
 #include <iostream>
 #include <fstream>
@@ -24,6 +28,8 @@ void StrDowncast (std::string& input)                                   // strin
 {
     std::transform(input.begin(), input.end(), input.begin(), [](unsigned char c){return std::tolower(c);});
 }
+
+////////////////////////////////////////////////////////////////////////////////////////////////
 
 int main()
 {

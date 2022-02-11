@@ -1,3 +1,8 @@
+/* Task 7 - binary serialization and external libraries.
+1. install protobuf library.
+2. using protobuf generate classes of fullname, student and studentgroup
+3. Add interfaces to studentgroup, such as binary serialization and deserialization, getaveragescore, getallinfo
+*/
 #pragma once
 
 namespace LOCALSTUDENT

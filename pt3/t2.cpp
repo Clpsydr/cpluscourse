@@ -1,3 +1,9 @@
+/*
+1. template swap function that takes two pointers and swaps only their addresses.
+2. SortPointers template function that accepts vector of pointers and sorts them by values 
+3. count vowels in War and Peace book. Use 4 different methods, display the calculation time.
+*/
+
 #include <cstdio>
 #include <iostream>
 #include <fstream>
@@ -89,6 +95,8 @@ int Search_forfor(std::string_view& text, std::string& searchsample)
     return counter;    
 }
 
+//////////////////////////////////////////////////////////////////////////////////////////
+
 int main(int argc, char* argv[])
 {
     int m, n, f, g;
@@ -119,16 +127,18 @@ int main(int argc, char* argv[])
     if (argc > 1)           
     {
         std::ifstream source(argv[1]);
-        if (!source)
+        if (!source.is_open())
         {
             std::cerr << "file name invalid, exiting";
             exit(1);
         }
         else 
+        {
             while (getline(source, parseline))
             {
                 parsedtext.append(parseline);
             }
+        }
     }
     else
     {

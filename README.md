@@ -1,24 +1,28 @@
-# список файлов:
-/pt2  - каталог для заданий из второй части курса - ООП
-- ttt           - запускаемый файл для крестиков-ноликов
-- tictac.cpp    - восьмой урок - игра крестики-нолики
-- taskseven.cpp - седьмой урок - неймспейс, директивы
--  tasksix.cpp - шестой урок - выделение памяти и файлы
--  taskfive.cpp - пятый урок - функции
--  taskfour.cpp - четвертый урок - циклы и условия.
--  taskthree - задание для третьего урока, массивы, указатели, внешние файлы, библиотеки
--  secondtask.cpp - задание для второго урока, энум, структуры, юнион 
-/pythongame - задание для первого урока, отрисовка символов по dt.
+﻿# Basic cpp course comprised of three parts:
+/pythongame - snake ascii game 
+- madpython.cpp 
 
-## madpython.cpp - игра змейка, первое практическое задание
-Перемещение выполняется по WSAD, выход через Esc.
-При проигрыше нажатие R перезагружает игру.
+/pt1 - basic tasks, ascii tic tac toe game
+- ttt           - main executable
+- tictac.cpp    - class structure for ttt
+- taskseven.cpp - namespaces, directives
+-  tasksix.cpp - file io / memory
+-  taskfive.cpp - functions
+-  taskfour.cpp - cycle/ conditions
+-  taskthree - externals, libraries, arrays, pointers
+-  secondtask.cpp - enum, union, structs
 
-0.1- работает общий игровой цикл, механия удлинения хвоста и столкновения с препятствиями/яблоками.
+/pt2 - OOP tasks, plus Black Jack 
+
+/pt3 - 
+- t1.cpp , extra types, lambda functions
+
+## for snake game
+0.1- basic gameplay, collisions, tail extension
  
-### Текущие проблемы / TODO LIST:
-* код для курсорных клавиш это три нажатия сразу, одно из которых равен escape, что роняет игру.
-* неадекватные столновения из-за разницы между рациональными игровыми данными и дискретными экранными (не знаю, зачем я их сделал разными)
-* грубо реализован цикл через задержку, без привязки к скорости обработки, может съедать быстрое нажатие клавиш
-* код какой попало, нужно реализовать ООП для структур и разделить обновление графики и обновление данных
-* закончить столкновения для собственного хвоста и респавн фруктов, может быть запись/считывание очков из файла.
+### TODO LIST:
+* sticky key problem, due to ncurses processing cursor keys as three presses at once, including escape
+* inadequate collisions, due to coordinate space calculated through float.
+* delay based update cycle, not considering computer speed
+* lacks OOP classes, no strict divide between graphical and data processing
+* lacks collision with tail and fruit respawn.

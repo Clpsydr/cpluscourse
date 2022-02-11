@@ -1,3 +1,11 @@
+/* Task 4 - STL algorithms
+1. With a given sorted integer array, add Insert_Sorted function that adds new integer in a certain position in an array to keep the sorted order.
+Also a template for Insert_Sorted for any container with any type of data.
+2. Generate vector a with 100 float values, representing analogue signal. Make an integer array off it with only whole parts of values.
+calculate accumulated error using analog to digital error formula. Use algorythmic functions without cycles.
+*/
+#define _USE_MATH_DEFINES
+
 #include <iostream>
 #include <cstdlib>
 #include <ctime>
@@ -6,9 +14,11 @@
 #include <vector>
 #include <deque>
 #include <list>
-#include <algorithm>
+#include <algorithm>    // for sorting
+#include <numeric>      // for inner_product
+#include <numbers>      // for math constants
 #include <iterator>
-#include <cmath>
+#include <cmath>        // linux compiler requirement, might also need #define _USE_MATH_DEFINES
 
 int32_t getRandomNum(int32_t min, int32_t max)
 {
@@ -30,6 +40,7 @@ template <typename T, class Container>
 void insert_sorted(Container& in_array, T newvalue)
 {
     in_array.emplace(lower_bound(in_array.begin(), in_array.end(), newvalue), newvalue);
+    // alternatively, in_array.insert(upper_bound(in_array.cbegin(), in_array.cend(), newvalue), newvalue);  in a function that would return the value
 }
 
 float ErrorMargin(std::vector<float> Vreal, std::vector<int> Vdigit)
@@ -38,6 +49,7 @@ float ErrorMargin(std::vector<float> Vreal, std::vector<int> Vdigit)
     return inner_product(Vreal.begin(), Vreal.end(), Vdigit.begin(), difference, [](float a, float b){return a+b;}, [](float a, int b){return (a-b)*(a-b); });
 }
 
+/////////////////////////////////////////////////////////////////////////////////////
 
 int main()
 {

@@ -1,3 +1,9 @@
+/* STL containers
+1. Add float number to end of the list, that is an average of sum of all the list elements
+2. Class that represents matrix. Method that calculates determinant of the matrix
+3. Make your own iterator class for integer numbers in for-range-based range.
+*/
+
 #include <cstdio>
 #include <iostream>
 #include <list>
@@ -7,7 +13,7 @@
 #include <memory>
 #include <math.h>
 
-/////////// randomizer for convenience 
+/////////// randomizer scope for convenience 
 #define RANGEX 1
 #define RANGEY 15
 
@@ -74,7 +80,7 @@ class Matrix
         {
         }
 
-        std::list<int> getElements()
+        std::list<int> getElements() const
         {
             return elements;
         }
@@ -233,7 +239,8 @@ class StepIterator : public std::iterator<std::random_access_iterator_tag, int>
 
 };
 
-class Diapazone                                                                          // pseudo container with only range and step for iteration
+// pseudo container with only range and step for iteration
+class Diapazone 
 {
     private:
         int i_min;
@@ -271,6 +278,7 @@ class Diapazone                                                                 
     
 };
 
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 int main()
 {

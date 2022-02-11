@@ -1,3 +1,8 @@
+/* Task 6 - parallel computing basics
+1. cout wrapper safe for parallel use.
+2. function that returns Nth prime number, calculate in parallel to the main stream, where progress is displayed
+3. simulation of a house owner and a thief, one brings items to the house, another takes them away. Use parallel streams for each accessing the same data.
+*/
 #include <cstdio>
 #include <iostream>
 #include "time.h" 
@@ -6,10 +11,12 @@
 #include <thread>
 #include <mutex>
 #include <chrono>
+#include <string>
+#include <algorithm>
 
 using namespace std::chrono_literals;
 
-#define PATIENCE 5          // cycles that thief in task 3 goes through
+#define PATIENCE 5          // amount of cycles that thief in task 3 goes through
 
 // relatively useless cout wrapper, since it only protects single output.
 class pCout
@@ -207,6 +214,8 @@ void thief(Room& room, std::mutex& safe)
         std::cout << "burlgar got bored and burned the house\n";
 }
 
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 int main()
 {
     srand(static_cast<unsigned int>(time(0)));
@@ -265,7 +274,6 @@ int main()
      safetofinish.lock();
     std::cout << "ending task 3. \n\n";
     safetofinish.unlock();
-     
 
     return 0;
 }
